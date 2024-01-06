@@ -1,0 +1,27 @@
+version: "3.1"
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: action_goodbye
+
+- rule: Say hello anytime the user says hello
+  steps:
+  - intent: greet
+  - action: action_greet
+
+- rule: price_explore
+  steps:
+  - intent: price_explore
+  - action: action_price_explore
+
+- rule: benfits_explore
+  steps:
+  - intent: benfits_explore
+  - action: action_benfits_explore
+
+- rule: prior_authorization
+  steps:
+  - intent: prior_authorization
+  - action: action_prior_authorization

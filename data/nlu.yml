@@ -1,0 +1,109 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: price_explore
+  examples: |
+    - how much does it cost for [knee replacement surgery](benfits)?
+    - what is the price of [knee replacement surgery](benfits)?
+    - can you tell me the cost of [knee replacement surgery](benfits)?
+    - how expensive is [knee replacement surgery](benfits)?
+    - what are the charges for [knee replacement surgery](benfits)?
+    - I want to know the price for [knee replacement surgery](benfits).
+    - what is the cost of [knee replacement surgery](benfits)?
+    - can you provide me with the pricing for [knee replacement surgery](benfits)?
+    - how much do I need to pay for [knee replacement surgery](benfits)?
+    - what is the fee for [knee replacement surgery](benfits)?
+
+- intent: benfits_explore
+  examples: |
+    - what are my benfits for [knee replacement surgery](benfits)?
+    - is my benfits cover [knee replacement surgery](benfits)?
+    - is my benfits covered?
+    - is my [maternity](benfits) benfits covered?
+    - what are the coverage details for [knee replacement surgery](benfits)?
+    - can you explain my benfits for [knee replacement surgery](benfits)?
+    - are there any limitations on my benfits for [knee replacement surgery](benfits)?
+    - what is included in my benfits for [knee replacement surgery](benfits)?
+    - can you provide information about my benfits for [knee replacement surgery](benfits)?
+    - how can I use my benfits for [knee replacement surgery](benfits)?
+
+- intent: prior_authorization
+  examples: |
+    - hello i need prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
+    - I require prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
+    - can you help me with prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)?
+    - I need to get prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
+    - how can I obtain prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)?
+    - I want to request prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
+    - can you guide me through the process of prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)?
+    - I am seeking prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
+    - what is the procedure for prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)?
+    - I need assistance with prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
+
+- lookup: benfits
+  examples: |
+    - knee replacement surgery
+    - maternity
+
+- synonym: knee replacement surgery
+  examples: |
+    - knee replacement
+    - knee surgery
+    - knee
+    - knee replacement surgery
+
+- synonym: maternity
+  examples: |
+    - maternity benfits
+    - maternity coverage
+    - maternity insurance
+    - maternity care
+    - maternity leave
+    - maternity leave benfits
+

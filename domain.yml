@@ -1,0 +1,40 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - price_explore
+  - benfits_explore
+  - prior_authorization
+
+entities:
+  - patient_id
+  - benfits
+
+slots:
+  patient_id:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: patient_id
+  benfits:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: benfits
+
+session_config:
+  session_expiration_time: 10
+  carry_over_slots_to_new_session: true
+
+actions:
+  - action_session_start
+  - action_prior_authorization
+  - action_price_explore
+  - action_benfits_explore
+  - action_greet
+  - action_goodbye
+  - action_default_fallback
+
