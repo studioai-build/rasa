@@ -16,10 +16,10 @@ rules:
   - intent: price_explore
   - action: action_price_explore
 
-- rule: benfits_explore
+- rule: benefits_explore
   steps:
-  - intent: benfits_explore
-  - action: action_benfits_explore
+  - intent: benefits_explore
+  - action: action_benefits_explore
 
 - rule: prior_authorization
   steps:

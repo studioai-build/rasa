@@ -3,7 +3,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SessionStarted, ActionExecuted, EventType, SlotSet, FollowupAction
-from database.price_list import BENFITS_PRICE
+from database.price_list import BENEFITS_PRICE
 
 USER_IDS = {}
 USER_SESSIONS = {}
@@ -35,19 +35,21 @@ class ActionPriorAuthorization(Action):
                 tracker: Tracker,
                 domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
             
-            #check in entites if there are pation id if not ask for pation id if found return some benfits
+            #check in entites if there are member id if not ask for member id if found return some benefits
             entities = tracker.latest_message['entities']
             print("entities: ", entities)
             for i in entities:
-                if i['entity'] == 'patient_id':
-                    print("patient_id: ", i['value'])
-                    patient_id = i['value']
-                    flag_patient_id = True
-                    dispatcher.utter_message(text="Affirm Prior Authorization for pation id: "+patient_id) 
+                if i['entity'] == 'member_id':
+                    print("member_id: ", i['value'])
+                    member_id = i['value']
+                    flag_member_id = True
+                    dispatcher.utter_message(text="Affirm Prior Authorization for member id: "+member_id) 
                 else:
-                    flag_patient_id = False
-            if flag_patient_id == False:
-                dispatcher.utter_message(text="Please provide pation id")      
+                    flag_member_id = False
+            if flag_member_id == False:
+                dispatcher.utter_message(text="Please provide member id")      
+            #TO SEND THE SECOND API
+            
             return []
     
 class ActionPriceExplore(Action):
@@ -63,23 +65,23 @@ class ActionPriceExplore(Action):
             print("entities: ", entities)
 
             for i in entities:
-                if i['entity'] == 'benfits':
-                    print("benfits: ", i['value'])
-                    benfits = i['value']
-                    if benfits == 'knee replacement surgery':
-                        dispatcher.utter_message(text=f"knee replacement surgery price is {BENFITS_PRICE[benfits]}")
-                    elif benfits == 'maternity':
-                        dispatcher.utter_message(text=f"maternity price is {BENFITS_PRICE[benfits]}")
+                if i['entity'] == 'benefits':
+                    print("benefits: ", i['value'])
+                    benefits = i['value']
+                    if benefits == 'knee replacement surgery':
+                        dispatcher.utter_message(text=f"knee replacement surgery price is {BENEFITS_PRICE[benefits]}")
+                    elif benefits == 'maternity':
+                        dispatcher.utter_message(text=f"maternity price is {BENEFITS_PRICE[benefits]}")
                     else:
-                        dispatcher.utter_message(text="benfits not found")
+                        dispatcher.utter_message(text="benefits not found")
                 else:
-                    dispatcher.utter_message(text="What specific benfits you want to know?")
+                    dispatcher.utter_message(text="What specific benefits you want to know?")
             return []
 
-class ActionBenfitsExplore(Action):
+class ActionbenefitsExplore(Action):
             
         def name(self) -> Text:
-            return "action_benfits_explore"
+            return "action_benefits_explore"
         
         def run(self, dispatcher: CollectingDispatcher,
                 tracker: Tracker,
@@ -87,18 +89,18 @@ class ActionBenfitsExplore(Action):
             entities = tracker.latest_message['entities']
             print("entities: ", entities)
             if len(entities) == 0:
-                dispatcher.utter_message(text="What specific benfits you want to know?")
+                dispatcher.utter_message(text="What specific benefits you want to know?")
                 return []
             for i in entities:
-                if i['entity'] == 'benfits':
-                    print("benfits: ", i['value'])
-                    benfits = i['value']
-                    if benfits == 'knee replacement surgery':
-                        dispatcher.utter_message(text=f"Yes, knee replacement surgery benfits is covered and cost is {BENFITS_PRICE[benfits]}")
-                    elif benfits == 'maternity':
-                        dispatcher.utter_message(text=f"Yes, maternity benfits is covered and cost is {BENFITS_PRICE[benfits]} ")
+                if i['entity'] == 'benefits':
+                    print("benefits: ", i['value'])
+                    benefits = i['value']
+                    if benefits == 'knee replacement surgery':
+                        dispatcher.utter_message(text=f"Yes, knee replacement surgery benefits is covered and cost is {BENEFITS_PRICE[benefits]}")
+                    elif benefits == 'maternity':
+                        dispatcher.utter_message(text=f"Yes, maternity benefits is covered and cost is {BENEFITS_PRICE[benefits]} ")
                 else:
-                    dispatcher.utter_message(text="What specific benfits you want to know?")
+                    dispatcher.utter_message(text="What specific benefits you want to know?")
             
             return []
 

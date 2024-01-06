@@ -49,44 +49,44 @@ nlu:
 
 - intent: price_explore
   examples: |
-    - how much does it cost for [knee replacement surgery](benfits)?
-    - what is the price of [knee replacement surgery](benfits)?
-    - can you tell me the cost of [knee replacement surgery](benfits)?
-    - how expensive is [knee replacement surgery](benfits)?
-    - what are the charges for [knee replacement surgery](benfits)?
-    - I want to know the price for [knee replacement surgery](benfits).
-    - what is the cost of [knee replacement surgery](benfits)?
-    - can you provide me with the pricing for [knee replacement surgery](benfits)?
-    - how much do I need to pay for [knee replacement surgery](benfits)?
-    - what is the fee for [knee replacement surgery](benfits)?
+    - how much does it cost for [knee replacement surgery](benefits)?
+    - what is the price of [knee replacement surgery](benefits)?
+    - can you tell me the cost of [knee replacement surgery](benefits)?
+    - how expensive is [knee replacement surgery](benefits)?
+    - what are the charges for [knee replacement surgery](benefits)?
+    - I want to know the price for [knee replacement surgery](benefits).
+    - what is the cost of [knee replacement surgery](benefits)?
+    - can you provide me with the pricing for [knee replacement surgery](benefits)?
+    - how much do I need to pay for [knee replacement surgery](benefits)?
+    - what is the fee for [knee replacement surgery](benefits)?
 
-- intent: benfits_explore
+- intent: benefits_explore
   examples: |
-    - what are my benfits for [knee replacement surgery](benfits)?
-    - is my benfits cover [knee replacement surgery](benfits)?
-    - is my benfits covered?
-    - is my [maternity](benfits) benfits covered?
-    - what are the coverage details for [knee replacement surgery](benfits)?
-    - can you explain my benfits for [knee replacement surgery](benfits)?
-    - are there any limitations on my benfits for [knee replacement surgery](benfits)?
-    - what is included in my benfits for [knee replacement surgery](benfits)?
-    - can you provide information about my benfits for [knee replacement surgery](benfits)?
-    - how can I use my benfits for [knee replacement surgery](benfits)?
+    - what are my benefits for [knee replacement surgery](benefits)?
+    - is my benefits cover [knee replacement surgery](benefits)?
+    - is my benefits covered?
+    - is my [maternity](benefits) benefits covered?
+    - what are the coverage details for [knee replacement surgery](benefits)?
+    - can you explain my benefits for [knee replacement surgery](benefits)?
+    - are there any limitations on my benefits for [knee replacement surgery](benefits)?
+    - what is included in my benefits for [knee replacement surgery](benefits)?
+    - can you provide information about my benefits for [knee replacement surgery](benefits)?
+    - how can I use my benefits for [knee replacement surgery](benefits)?
 
 - intent: prior_authorization
   examples: |
-    - hello i need prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
-    - I require prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
-    - can you help me with prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)?
-    - I need to get prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
-    - how can I obtain prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)?
-    - I want to request prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
-    - can you guide me through the process of prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)?
-    - I am seeking prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
-    - what is the procedure for prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)?
-    - I need assistance with prior authorization for [knee replacement surgery](benfits) for member id [123456789](patient_id)
+    - hello i need prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - I require prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - can you help me with prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
+    - I need to get prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - how can I obtain prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
+    - I want to request prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - can you guide me through the process of prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
+    - I am seeking prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - what is the procedure for prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
+    - I need assistance with prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
 
-- lookup: benfits
+- lookup: benefits
   examples: |
     - knee replacement surgery
     - maternity
@@ -100,10 +100,10 @@ nlu:
 
 - synonym: maternity
   examples: |
-    - maternity benfits
+    - maternity benefits
     - maternity coverage
     - maternity insurance
     - maternity care
     - maternity leave
-    - maternity leave benfits
+    - maternity leave benefits
 

@@ -6,24 +6,24 @@ intents:
   - affirm
   - deny
   - price_explore
-  - benfits_explore
+  - benefits_explore
   - prior_authorization
 
 entities:
-  - patient_id
-  - benfits
+  - member_id
+  - benefits
 
 slots:
-  patient_id:
+  member_id:
     type: float
     mappings:
       - type: from_entity
-        entity: patient_id
-  benfits:
+        entity: member_id
+  benefits:
     type: text
     mappings:
       - type: from_entity
-        entity: benfits
+        entity: benefits
 
 session_config:
   session_expiration_time: 10
@@ -33,7 +33,7 @@ actions:
   - action_session_start
   - action_prior_authorization
   - action_price_explore
-  - action_benfits_explore
+  - action_benefits_explore
   - action_greet
   - action_goodbye
   - action_default_fallback
