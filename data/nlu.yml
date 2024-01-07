@@ -72,6 +72,15 @@ nlu:
     - what is included in my benefits for [knee replacement surgery](benefits)?
     - can you provide information about my benefits for [knee replacement surgery](benefits)?
     - how can I use my benefits for [knee replacement surgery](benefits)?
+    - what are my benefits for [maternity](benefits)?
+    - is my benefits cover [maternity](benefits)?
+    - is my [maternity](benefits) benefits covered?
+    - what are the coverage details for [maternity](benefits)?
+    - can you explain my benefits for [maternity](benefits)?
+    - are there any limitations on my benefits for [maternity](benefits)?
+    - what is included in my benefits for [maternity](benefits)?
+    - can you provide information about my benefits for [maternity](benefits)?
+    - how can I use my benefits for [maternity](benefits)?
 
 - intent: prior_authorization
   examples: |
@@ -79,12 +88,35 @@ nlu:
     - I require prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
     - can you help me with prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
     - I need to get prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
-    - how can I obtain prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
+    - how can I obtain prior authorization for [maternity](benefits) for member id [123456789](member_id)?
     - I want to request prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
     - can you guide me through the process of prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
-    - I am seeking prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - I am seeking prior authorization for [maternity](benefits) for member id [123456789](member_id)
     - what is the procedure for prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
-    - I need assistance with prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - I need assistance with prior authorization for [pregnancy](benefits) for member id [123456789](member_id)
+
+- intent: out_of_scope
+  examples: |
+    - What's the weather like today?
+    - Can you give me the weather forecast?
+    - Is it going to rain tomorrow?
+    - Tell me the temperature in New York.
+    - Who won the football match yesterday?
+    - What's the score of the basketball game?
+    - Can you recommend a good restaurant nearby?
+    - Do you have any movie recommendations?
+    - How can I book a flight?
+    - What's the latest news?
+    - Can you help me with my math homework?
+    - How do I fix a leaking faucet?
+    - What's the best way to lose weight?
+    - Can you suggest some books to read?
+    - How can I improve my photography skills?
+    - What's the best way to learn a new language?
+    - Can you recommend a good workout routine?
+    - How do I bake a chocolate cake?
+    - What's the best way to clean a laptop screen?
+    - Can you give me some gardening tips?
 
 - lookup: benefits
   examples: |
@@ -106,4 +138,11 @@ nlu:
     - maternity care
     - maternity leave
     - maternity leave benefits
+    - pregnancy
+    - pregnancy benefits
+    - pregnancy coverage
+    - pregnancy insurance
+    - pregnancy care
+    - pregnancy leave
+    - pregnancy leave benefits
 

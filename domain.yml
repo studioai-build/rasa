@@ -8,6 +8,7 @@ intents:
   - price_explore
   - benefits_explore
   - prior_authorization
+  - out_of_scope
 
 entities:
   - member_id

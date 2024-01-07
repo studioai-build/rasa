@@ -25,3 +25,8 @@ rules:
   steps:
   - intent: prior_authorization
   - action: action_prior_authorization
+
+- rule: out_of_scope
+  steps:
+  - intent: out_of_scope
+  - action: action_default_fallback

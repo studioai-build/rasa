@@ -3,10 +3,12 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SessionStarted, ActionExecuted, EventType, SlotSet, FollowupAction
-from database.price_list import BENEFITS_PRICE
+from messages.messages import generate_message
+from validation.validate_member_id import MemberIDValidator
 
 USER_IDS = {}
 USER_SESSIONS = {}
+member_id_validator =MemberIDValidator()
 
 class ActionSessionStart(Action):
 
@@ -35,21 +37,19 @@ class ActionPriorAuthorization(Action):
                 tracker: Tracker,
                 domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
             
-            #check in entites if there are member id if not ask for member id if found return some benefits
             entities = tracker.latest_message['entities']
+            flag_member_id = False
             print("entities: ", entities)
             for i in entities:
                 if i['entity'] == 'member_id':
                     print("member_id: ", i['value'])
                     member_id = i['value']
                     flag_member_id = True
-                    dispatcher.utter_message(text="Affirm Prior Authorization for member id: "+member_id) 
-                else:
-                    flag_member_id = False
+                    validated_message  = member_id_validator.validate(member_id)
+                    dispatcher.utter_message(text=validated_message)
+                    
             if flag_member_id == False:
-                dispatcher.utter_message(text="Please provide member id")      
-            #TO SEND THE SECOND API
-            
+                dispatcher.utter_message(text=generate_message()["prior_authorization_not_found"])                  
             return []
     
 class ActionPriceExplore(Action):
@@ -68,17 +68,12 @@ class ActionPriceExplore(Action):
                 if i['entity'] == 'benefits':
                     print("benefits: ", i['value'])
                     benefits = i['value']
-                    if benefits == 'knee replacement surgery':
-                        dispatcher.utter_message(text=f"knee replacement surgery price is {BENEFITS_PRICE[benefits]}")
-                    elif benefits == 'maternity':
-                        dispatcher.utter_message(text=f"maternity price is {BENEFITS_PRICE[benefits]}")
-                    else:
-                        dispatcher.utter_message(text="benefits not found")
+                    dispatcher.utter_message(text=generate_message(benefits = benefits)["price_explore"])
                 else:
-                    dispatcher.utter_message(text="What specific benefits you want to know?")
+                    dispatcher.utter_message(text=generate_message()["benefits_not_found"])
             return []
 
-class ActionbenefitsExplore(Action):
+class ActionBenefitsExplore(Action):
             
         def name(self) -> Text:
             return "action_benefits_explore"
@@ -86,22 +81,19 @@ class ActionbenefitsExplore(Action):
         def run(self, dispatcher: CollectingDispatcher,
                 tracker: Tracker,
                 domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
             entities = tracker.latest_message['entities']
+            flag_benefits = False
             print("entities: ", entities)
-            if len(entities) == 0:
-                dispatcher.utter_message(text="What specific benefits you want to know?")
-                return []
+
             for i in entities:
                 if i['entity'] == 'benefits':
-                    print("benefits: ", i['value'])
                     benefits = i['value']
-                    if benefits == 'knee replacement surgery':
-                        dispatcher.utter_message(text=f"Yes, knee replacement surgery benefits is covered and cost is {BENEFITS_PRICE[benefits]}")
-                    elif benefits == 'maternity':
-                        dispatcher.utter_message(text=f"Yes, maternity benefits is covered and cost is {BENEFITS_PRICE[benefits]} ")
-                else:
-                    dispatcher.utter_message(text="What specific benefits you want to know?")
+                    flag_benefits = True
+                    dispatcher.utter_message(text=generate_message(benefits = benefits)["benefits"])
             
+            if flag_benefits == False or len(entities) == 0:
+                dispatcher.utter_message(text=generate_message()["benefits_not_found"])
             return []
 
 class ActionGreet(Action):
@@ -113,7 +105,7 @@ class ActionGreet(Action):
                 tracker: Tracker,
                 domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
             
-            dispatcher.utter_message(text="hello there how can i help you")
+            dispatcher.utter_message(text=generate_message()["greetings"])
             
             return []
 
@@ -126,7 +118,7 @@ class ActionGoodbye(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        dispatcher.utter_message(text="Goodbye")
+        dispatcher.utter_message(text=generate_message()["goodbye"])
         
         return []
 
@@ -139,7 +131,7 @@ class ActionDefaultFallback(Action):
                 tracker: Tracker,
                 domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
             
-            dispatcher.utter_message(text="Default Fallback")
+            dispatcher.utter_message(text=generate_message()["default_fallback"])
             
-            return []
+            return [FollowupAction("action_listen")]
         
