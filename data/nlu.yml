@@ -58,7 +58,7 @@ nlu:
     - what is the cost of [knee replacement surgery](benefits)?
     - can you provide me with the pricing for [knee replacement surgery](benefits)?
     - how much do I need to pay for [knee replacement surgery](benefits)?
-    - what is the fee for [knee replacement surgery](benefits)?
+    - what is the fee for [mri](benefits)?
 
 - intent: benefits_explore
   examples: |
@@ -76,7 +76,7 @@ nlu:
     - is my benefits cover [maternity](benefits)?
     - is my [maternity](benefits) benefits covered?
     - what are the coverage details for [maternity](benefits)?
-    - can you explain my benefits for [maternity](benefits)?
+    - can you explain my benefits for [mri](benefits)?
     - are there any limitations on my benefits for [maternity](benefits)?
     - what is included in my benefits for [maternity](benefits)?
     - can you provide information about my benefits for [maternity](benefits)?
@@ -89,7 +89,7 @@ nlu:
     - can you help me with prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
     - I need to get prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
     - how can I obtain prior authorization for [maternity](benefits) for member id [123456789](member_id)?
-    - I want to request prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - I want to request prior authorization for [mri](benefits) for member id [123456789](member_id)
     - can you guide me through the process of prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
     - I am seeking prior authorization for [maternity](benefits) for member id [123456789](member_id)
     - what is the procedure for prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
@@ -122,6 +122,9 @@ nlu:
   examples: |
     - knee replacement surgery
     - maternity
+    - mri
+    - Magnetic resonance imaging
+    - mri scan
 
 - synonym: knee replacement surgery
   examples: |
@@ -146,3 +149,8 @@ nlu:
     - pregnancy leave
     - pregnancy leave benefits
 
+- synonym: mri
+  examples: |
+    - mri
+    - Magnetic resonance imaging
+    - mri scan
