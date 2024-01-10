@@ -67,8 +67,6 @@ nlu:
     - is my benefits covered?
     - is my [maternity](benefits) benefits covered?
     - what are the coverage details for [knee replacement surgery](benefits)?
-    - can you explain my benefits for [knee replacement surgery](benefits)?
-    - are there any limitations on my benefits for [knee replacement surgery](benefits)?
     - what is included in my benefits for [knee replacement surgery](benefits)?
     - can you provide information about my benefits for [knee replacement surgery](benefits)?
     - how can I use my benefits for [knee replacement surgery](benefits)?
@@ -76,24 +74,42 @@ nlu:
     - is my benefits cover [maternity](benefits)?
     - is my [maternity](benefits) benefits covered?
     - what are the coverage details for [maternity](benefits)?
-    - can you explain my benefits for [mri](benefits)?
-    - are there any limitations on my benefits for [maternity](benefits)?
     - what is included in my benefits for [maternity](benefits)?
     - can you provide information about my benefits for [maternity](benefits)?
     - how can I use my benefits for [maternity](benefits)?
+    - are there any [restrictions constraints limitations](limitations) on my benefits for [maternity knee replacement surgery fitness](benefits)?
+    - what is my [remaining deductible](calculation)?
+    - what is my [remaining deductible](calculation) for [knee replacement surgery mri](benefits)?
+    - can you [explain clarify](explanation) my benefits for [knee replacement surgery mri](benefits)?
+
 
 - intent: prior_authorization
   examples: |
     - hello i need prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
     - I require prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
     - can you help me with prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
-    - I need to get prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - I need to [get fetch receive show](prior_auth_requirements) prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)
+    - what are the prerequisite to [get fetch receive show](prior_auth_requirements) a prior auth for knee replacement surgery
     - how can I obtain prior authorization for [maternity](benefits) for member id [123456789](member_id)?
     - I want to request prior authorization for [mri](benefits) for member id [123456789](member_id)
     - can you guide me through the process of prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
     - I am seeking prior authorization for [maternity](benefits) for member id [123456789](member_id)
     - what is the procedure for prior authorization for [knee replacement surgery](benefits) for member id [123456789](member_id)?
     - I need assistance with prior authorization for [pregnancy](benefits) for member id [123456789](member_id)
+    - What is the [status](prior_auth_status) of my prior auth I submitted for member id [123456789](member_id)
+    - Can you tell me the prior auth [status](prior_auth_status) for knee surgery for member id [123456789](member_id)
+
+- intent: plan_explore
+  examples: |
+    - is there a plan that covers [maternity](benefits)
+    - can i switch to a plan that covers [knee surgery](benefits)
+    - what is the [minimum deductible](recommendation) for a plan that covers maternity
+
+- intent: provider_recommendation
+  examples: |
+    - Can you [recommend](provider_recommendation) a [in-network provider](provider) for MRI
+    - Can you [recommend](provider_recommendation) a [orthopedic surgeon](provider) in San Francisco
+    - Can you [recommend](provider_recommendation) a [orthopedic surgeon](provider) in 94108
 
 - intent: out_of_scope
   examples: |
@@ -125,6 +141,7 @@ nlu:
     - mri
     - Magnetic resonance imaging
     - mri scan
+    - fitness
 
 - synonym: knee replacement surgery
   examples: |

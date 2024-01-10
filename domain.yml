@@ -9,6 +9,8 @@ intents:
   - benefits_explore
   - prior_authorization
   - out_of_scope
+  - plan_explore
+  - provider_recommendation
 
 entities:
   - member_id
@@ -25,7 +27,6 @@ slots:
     mappings:
       - type: from_entity
         entity: benefits
-
 session_config:
   session_expiration_time: 10
   carry_over_slots_to_new_session: true
@@ -34,8 +35,20 @@ actions:
   - action_session_start
   - action_prior_authorization
   - action_price_explore
+  - action_disclaimers
   - action_benefits_explore
+  - action_benefits_limitation
+  - action_benefits_calculation
+  - action_benefits_explanation
+  - action_benefit_validator
   - action_greet
   - action_goodbye
   - action_default_fallback
+  - action_plan_explore
+  - action_plan_benefits_explore
+  - action_plan_benefits_recommendation
+  - action_prior_authorization_requirement
+  - action_prior_authorization_status
+  - action_provider_recommendation
+  - action_plan_explore_recommendation
 

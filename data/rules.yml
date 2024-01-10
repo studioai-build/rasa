@@ -19,7 +19,7 @@ rules:
 - rule: benefits_explore
   steps:
   - intent: benefits_explore
-  - action: action_benefits_explore
+  - action: action_benefit_validator
 
 - rule: prior_authorization
   steps:
@@ -30,3 +30,13 @@ rules:
   steps:
   - intent: out_of_scope
   - action: action_default_fallback
+
+- rule: plan_explore
+  steps:
+  - intent: plan_explore
+  - action: action_plan_explore
+
+- rule: provider_recommendation
+  steps:
+  - intent: provider_recommendation
+  - action: action_provider_recommendation
